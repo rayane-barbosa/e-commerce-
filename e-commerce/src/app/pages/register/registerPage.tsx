@@ -1,10 +1,8 @@
 "use client";
-import { register } from "module";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import '../../../../public/formsStyle.css'
+import "../../../../public/formsStyle.css";
 import { ErrorMessage } from "@/errorHandler/ErrorMessage";
-
 
 interface IFormRegisterValues {
   Email: string;
@@ -21,29 +19,37 @@ interface IFormRegisterValues {
   checkbox: boolean;
 }
 
-
 export const Register = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<IFormRegisterValues>();
 
-  const onSubmit = (data: any) => console.log(data);
-  console.log(errors);
+  const onSubmit = (data: IFormRegisterValues) => {
+    if (data.Password === data.PasswordValidation) {
+      console.log("Passwords match:", data);
+    } else {
+      alert("Passwords do not match");
+    }
+  };
 
   const registerErrorMessages: Record<string, string> = {
     required: "This field is required",
     pattern: "Invalid format",
-    maxLength: "is too long",
-    minLength: "is too short",
+    maxLength: "Too long",
+    minLength: "Too short",
+    passwordMatch: "Passwords do not match",
+  };
 
-  }
-
+  const validatePasswordMatch = (value: string): boolean | string => {
+    const password = watch("Password");
+    return password === value || "passwordMatch";
+  };
 
   return (
-    <form className="form-align"
-    onSubmit={handleSubmit(onSubmit)}>
+    <form className="form-align" onSubmit={handleSubmit(onSubmit)}>
       <input
         className="inputForms"
         type="text"
@@ -51,7 +57,10 @@ export const Register = () => {
         {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
       />
 
-      <ErrorMessage errorType={errors.Email?.type} messages={registerErrorMessages} />
+      <ErrorMessage
+        errorType={errors.Email?.type}
+        messages={registerErrorMessages}
+      />
 
       <input
         className="inputForms"
@@ -60,17 +69,20 @@ export const Register = () => {
         {...register("MobileNumber", {
           required: true,
           pattern: /^\d+$/,
-          minLength: 6,
-          maxLength: 12,
+          minLength: 11,
+          maxLength: 11,
         })}
       />
-      <ErrorMessage errorType={errors.MobileNumber?.type} messages={registerErrorMessages} />
+      <ErrorMessage
+        errorType={errors.MobileNumber?.type}
+        messages={registerErrorMessages}
+      />
 
       <input
         className="inputForms"
         type="text"
         placeholder="CEP"
-        {...register("cep" ,{
+        {...register("cep", {
           required: true,
           pattern: /^\d+$/,
           minLength: 8,
@@ -78,7 +90,10 @@ export const Register = () => {
         })}
       />
 
-      <ErrorMessage errorType={errors.cep?.type} messages={registerErrorMessages} />
+      <ErrorMessage
+        errorType={errors.cep?.type}
+        messages={registerErrorMessages}
+      />
 
       <input
         className="inputForms"
@@ -88,22 +103,28 @@ export const Register = () => {
           required: true,
           minLength: 3,
           maxLength: 50,
-          })}
+        })}
       />
-      <ErrorMessage errorType={errors.endereco?.type} messages={registerErrorMessages} />
-      
+      <ErrorMessage
+        errorType={errors.endereco?.type}
+        messages={registerErrorMessages}
+      />
+
       <input
         className="inputForms"
         type="text"
         placeholder="Bairro"
-      {...register("bairro" ,{
+        {...register("bairro", {
           required: true,
           minLength: 3,
           maxLength: 50,
         })}
       />
 
-      <ErrorMessage errorType={errors.bairro?.type} messages={registerErrorMessages} />
+      <ErrorMessage
+        errorType={errors.bairro?.type}
+        messages={registerErrorMessages}
+      />
 
       <input
         className="inputForms"
@@ -116,7 +137,10 @@ export const Register = () => {
         })}
       />
 
-      <ErrorMessage errorType={errors.numero?.type} messages={registerErrorMessages} />
+      <ErrorMessage
+        errorType={errors.numero?.type}
+        messages={registerErrorMessages}
+      />
 
       <input
         className="inputForms"
@@ -129,7 +153,10 @@ export const Register = () => {
         })}
       />
 
-      <ErrorMessage errorType={errors.complemento?.type} messages={registerErrorMessages} />
+      <ErrorMessage
+        errorType={errors.complemento?.type}
+        messages={registerErrorMessages}
+      />
 
       <input
         className="inputForms"
@@ -142,7 +169,10 @@ export const Register = () => {
         })}
       />
 
-      <ErrorMessage errorType={errors.cidade?.type} messages={registerErrorMessages} />
+      <ErrorMessage
+        errorType={errors.cidade?.type}
+        messages={registerErrorMessages}
+      />
 
       <input
         className="inputForms"
@@ -155,39 +185,58 @@ export const Register = () => {
         })}
       />
 
-      <ErrorMessage errorType={errors.estado?.type} messages={registerErrorMessages} />
+      <ErrorMessage
+        errorType={errors.estado?.type}
+        messages={registerErrorMessages}
+      />
 
       <input
         type="password"
         placeholder="Password"
         {...register("Password", {
           required: true,
-          maxLength: 8,
-          minLength: 6,
+          maxLength: 18,
+          minLength: 8,
         })}
       />
-      <ErrorMessage errorType={errors.Password?.type} messages={registerErrorMessages} />
+
+      <ErrorMessage
+        errorType={errors.Password?.type}
+        messages={registerErrorMessages}
+      />
+
       <input
         type="password"
         placeholder="Password Validation"
         {...register("PasswordValidation", {
           required: true,
-          maxLength: 8,
-          minLength: 6,
+          maxLength: 18,
+          minLength: 8,
+          validate: validatePasswordMatch,
         })}
       />
-      <ErrorMessage errorType={errors.PasswordValidation?.type} messages={registerErrorMessages} />
+      <ErrorMessage
+        errorType={errors.PasswordValidation?.type}
+        messages={registerErrorMessages}
+      />
 
-      <a>Li e concondo com os termos de uso <input type="checkbox" placeholder="" {...register("checkbox", {
-          required: true,
-        })} aria-invalid={!!errors.checkbox} />     
-       </a>
-      <ErrorMessage errorType={errors.checkbox?.type} messages={registerErrorMessages} />
-      
+      <p>
+        Li e concordo com os termos de uso{" "}
+        <input
+          type="checkbox"
+          placeholder=""
+          {...register("checkbox", {
+            required: true,
+          })}
+          aria-invalid={!!errors.checkbox}
+        />
+      </p>
+      <ErrorMessage
+        errorType={errors.checkbox?.type}
+        messages={registerErrorMessages}
+      />
 
-
-      <input type="submit"
-       />
+      <input type="submit" disabled={!!Object.keys(errors).length} />
     </form>
   );
 };

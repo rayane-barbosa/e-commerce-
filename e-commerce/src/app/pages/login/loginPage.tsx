@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "./loginStyle.css";
+import '../../../../public/formsStyle.css'
 import { useForm } from "react-hook-form";
 
 export const Login = () => {
@@ -14,7 +14,8 @@ export const Login = () => {
 
   return (
     
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="form-align"
+    onSubmit={handleSubmit(onSubmit)}>
       <input
         type="text"
         placeholder="Email"

@@ -4,7 +4,7 @@ import '../../../../public/formsStyle.css'
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "../../../errorHandler/ErrorMessage.tsx";
 
-interface IFormValues {
+export interface IFormLoginValues {
   Email: string;
   Password: string;
 }
@@ -14,7 +14,7 @@ export const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormValues>();
+  } = useForm<IFormLoginValues>();
 
   const onSubmit = (data: any) => console.log(data);
   console.log(errors);

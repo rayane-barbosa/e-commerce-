@@ -2,6 +2,7 @@
 import { register } from "module";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import '../../../../public/formsStyle.css'
 
 export const Register = () => {
   const {
@@ -11,7 +12,8 @@ export const Register = () => {
   } = useForm();
   const onSubmit = (data: any) => console.log(data);
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="form-align"
+    onSubmit={handleSubmit(onSubmit)}>
       <input
         className="inputForms"
         type="text"

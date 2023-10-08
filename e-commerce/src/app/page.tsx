@@ -9,14 +9,13 @@ import { Login } from './pages/login/loginPage';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main >
       
-      <div className={styles.description}>
         
-        <Login />
         <Register />
         
-             </div>
+        
+      
             
     </main>
   )

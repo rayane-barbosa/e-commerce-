@@ -62,7 +62,7 @@ export const Login = () => {
       </form>
 
 
-      <h3 className="align-text" >New? <a href="/register">Register</a></h3>
+      <h3 className="align-text" >New? <a href="/registration">Register</a></h3>
     </div>
   );
 };

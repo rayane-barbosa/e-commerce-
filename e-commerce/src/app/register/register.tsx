@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useForm } from "react-hook-form";
-import "../../../../public/formsStyle.css";
+import "../../../public/formsStyle.css";
 import { ErrorMessage } from "@/errorHandler/ErrorMessage";
 
 interface IFormRegisterValues {

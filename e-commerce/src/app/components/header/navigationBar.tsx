@@ -1,39 +1,33 @@
 import React from "react";
 import Link from "next/link";
 import { BsCart4 } from "react-icons/bs";
-
+import { VscAccount } from "react-icons/vsc";
+import { GrHomeRounded } from "react-icons/gr";
 
 
 const Navbar = () => {
   return (
     <>
-      <div className="w-full h-20 bg-emerald-800 sticky top-0">
+      <div className="w-full h-20 bg-emerald-800 sticky top-0 flex items-center justify-center">
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
-            <img src="" alt="" />
             <ul className="hidden md:flex gap-x-6 text-white">
               <li>
                 <Link href="/home">
-                  <p>Home</p>
+                  <p> <GrHomeRounded/> Home </p>
                 </Link>
               </li>
               <li>
                 <Link href="/login">
-                  <p>Login</p>
-                </Link>
-              </li>
-              <li>
-                <Link href="/registration">
-                  <p>Registration</p>
+                  <p> <VscAccount/> My Account</p>
                 </Link>
               </li>
               <li>
                 <Link href="/cart">
-                 <p> <BsCart4/> </p>
+                  <p> <BsCart4 /> Cart </p>
                 </Link>
               </li>
             </ul>
-            <button />
           </div>
         </div>
       </div>

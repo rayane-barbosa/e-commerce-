@@ -6,10 +6,10 @@ import { Carousel } from 'react-responsive-carousel';
 class BannerCarousel extends Component {
     render() {
         return (
-            <Carousel>
+            <Carousel autoPlay infiniteLoop	 interval={4000}>
                 <div>
                     <img src="https://i.imgur.com/4wg8bZs.jpg" />
-                    <p className="legend">Legend 1</p>
+                    <p className="legend"  >Legend 1</p>
                 </div>
                 <div>
                     <img src="https://i.imgur.com/4wg8bZs.jpg" />

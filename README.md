@@ -2,23 +2,21 @@
 Challege code e-commerce project 
 
 
-|-- home
+> home
 
-      |-- PLP (Product List Page)
-      |-- PDP (Product Detail Page)
-    |-- Cart
-        |-- resume
-        |-- checkout
-        |-- confirmation
-|-- My Account
-
-|-- Admin (CMS)
-
-    |-- Product Registration
-    |-- Customer Listing
-|-- *Login*
-
-|-- *Registration*
+> > PLP (Product List Page)
+> > PDP (Product Detail Page)
+> >
+> Cart
+> > resume
+> > checkout
+> > confirmation
+> My Account
+> Admin (CMS)
+> > Product Registration
+> > Customer Listing
+> *Login*
+>  *Registration*
 
 
 
@@ -63,7 +61,7 @@ Therefore, there should be the same validations for email and password as on the
 ## Acceptance Criteria
 
 ### [ ]Home Page
-- Must have a main banner, which can be a single image or an image carousel.
+- Must have a main banner, which can be a single image or an image carousel. [ x ]
 - Should display a list of at least 8 products. They can be presented in a list format or in a product carousel.
 - If choosing a product carousel, the choice of the library to implement this feature is at your discretion and will count as an extra credit towards your grade.
 - Each product will be represented as a card with the following:

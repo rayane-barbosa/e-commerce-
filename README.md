@@ -2,21 +2,22 @@
 Challege code e-commerce project 
 
 
-> home
 
-> > PLP (Product List Page)
-> > PDP (Product Detail Page)
-> >
-> Cart
-> > resume
-> > checkout
-> > confirmation
-> My Account
-> Admin (CMS)
-> > Product Registration
-> > Customer Listing
-> *Login*
->  *Registration*
+
+- [Home](#home)
+  - [PLP (Product List Page)](#plp-product-list-page)
+  - [PDP (Product Detail Page)](#pdp-product-detail-page)
+  - [Cart](#cart)
+    - [Resume](#resume)
+    - [Checkout](#checkout)
+    - [Confirmation](#confirmation)
+- [My Account](#minha-conta)
+- [Admin (CMS) (optional)](#admin-cms-optional)
+  - [Product Registration](#cadastro-de-produtos-product-registration)
+  - [Customer List](#listagem-de-clientes-customer-list)
+- [Login](#login)
+- [Registration](#cadastro)
+
 
 
 

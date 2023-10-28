@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
-  justify-content: space-around 10px;
+  justify-content: space-around;
   height: 280px;
   background-color: #21211d;
   color: #fff;

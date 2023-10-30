@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { BsCartPlus } from "react-icons/bs";
-import { set } from "react-hook-form";
 
 interface IProductDetailsProps {
   image: string;

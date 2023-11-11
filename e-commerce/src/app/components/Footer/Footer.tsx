@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTwitter } from "react-icons/fa";
 import { LuInstagram, LuFacebook } from "react-icons/lu";
-import * as Styled from "./footer-styles";
+import * as Styled from "./Fotter.styles";
 import Image from "next/image";
 import logo from "../../../../public/logo.jpg";
 

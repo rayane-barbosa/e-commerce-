@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { BsCart4 } from "react-icons/bs";
 import { VscAccount } from "react-icons/vsc";
-import { HeaderNavigation } from "./header-styles";
+import { HeaderNavigation } from "../Header.styles";
 
 const Navbar = () => {
   let [user, setUser] = useState("not logged in");

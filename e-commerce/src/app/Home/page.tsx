@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import BannerCarousel from "./components/banner/banner";
-import { Header } from "../components/header/header";
-import { FooterPage } from "../components/footer/footer.tsx";
-import { ProductCatalog } from "../components/productDetails/productCatalog.tsx";
+import { Header } from "../components/Header/Header.tsx";
+import { FooterPage } from "../components/Footer/Footer.tsx";
+import { ProductCatalog } from "../components/ProductDetails/productCatalog.tsx";
 
 export default function HomePage() {
   return (

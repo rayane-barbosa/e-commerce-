@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "./navigationBar";
+import Navbar from "./components/navigationBar";
 import Image from "next/image";
 import logo from "../../../../public/logo.jpg";
-import * as Styled from "./header-styles";
+import * as Styled from "./Header.styles";
 
 const altLogo = "Logo";
 

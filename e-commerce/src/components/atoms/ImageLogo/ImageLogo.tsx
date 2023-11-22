@@ -1,15 +1,15 @@
 import React from "react";
 import logo from "../../../../public/logo.jpg";
-import * as Styled from "./Image_Logo.styles";
+import * as Styled from "./ImageLogo.styles";
 import Image from "next/image";
 
 const altLogo = "Logo";
 
-export const Image_Logo: React.FC = () => {
+export const ImageLogo: React.FC = () => {
   return (
     <>
       <Styled.ImageLogo>
-        <Image src={logo} alt={altLogo} width={100} height={100} />
+        <Image src={logo} alt="logo" width={100} height={100} />
       </Styled.ImageLogo>
     </>
   );

@@ -1,17 +1,23 @@
-//deve renderizar o componente NavBar
+import styled from "styled-components";
+import px2vw from "@/utils/px2vw";
 
-it("should render the NavBar component", () => {
-  expect(true).toBe(true);
-});
+export const NavigationBar = styled.nav`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: ${px2vw(500)};
+  min-height: ${px2vw(20)};
+  padding: ${px2vw(10)};
+  margin: ${px2vw(5)};
+  background-color: #1f221d;
+  font-size: 1rem;
 
-//Se estiver logado deve renderizar o Link de myAccount e o botão de logout
+  &:hover {
+    background-color: #a9a9a9;
+    color: white;
+  }
 
-it("should render the myAccount Link and logout button if user is logged in", () => {
-  expect(true).toBe(true);
-});
-
-//Se não estiver logado deve renderizar o Link de login e o Link de signUp (register)
-
-it("should render the login Link and signUp Link if user is not logged in", () => {
-  expect(true).toBe(true);
-});
+  li {
+    list-style-type: none;
+  }
+`;

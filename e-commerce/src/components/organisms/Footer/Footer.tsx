@@ -2,7 +2,7 @@ import React from "react";
 import { FaTwitter } from "react-icons/fa";
 import { LuInstagram, LuFacebook } from "react-icons/lu";
 import * as Styled from "./Fotter.styles";
-import { Image_Logo } from "@/components/atoms/Image_Logo/Image_Logo";
+import { ImageLogo } from "@/components/atoms/ImageLogo/ImageLogo";
 
 export const FooterPage = () => {
   return (
@@ -10,7 +10,7 @@ export const FooterPage = () => {
       <Styled.FooterContainer>
         <Styled.FooterAbout>
           <div>
-            <Image_Logo />
+            <ImageLogo />
             <p>We love cats as much as you do.</p>
             <p>Address Lorem ipsum dolor sit</p>
             <p>Phone 123 456 789</p>

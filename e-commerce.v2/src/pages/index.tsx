@@ -1,12 +1,12 @@
 import React from "react";
-import Home from "./homePage";
+import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 
 const HomePage: React.FC = () => {
   return (
     <div>
-      <Login />
+      <Home />
     </div>
   );
 };

@@ -1,7 +1,31 @@
 import styled from "styled-components";
 
-export const HeaderWrapper = styled.header`
-  background-color: #f8f9fa;
+export const StyledHeader = styled.header`
+  background-color: #f569d6;
   padding: 10px 0;
-  text-align: center;
+  text-decoration: none;
+`;
+
+export const Nav = styled.nav`
+  width: 80%;
+  margin: 0 auto;
+  text-decoration: none;
+`;
+
+export const Ul = styled.ul`
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+`;
+
+export const Li = styled.li``;
+
+export const StyledLink = styled.a`
+  text-decoration: none;
+  color: #333;
+
+  &:hover {
+    color: #0070f3;
+  }
 `;

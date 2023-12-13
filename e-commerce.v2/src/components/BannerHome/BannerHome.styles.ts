@@ -7,4 +7,5 @@ export const BannerWrapper = styled.div`
   align-items: center;
   height: 60vh;
   margin: 0 auto;
+  padding: 2rem;
 `;

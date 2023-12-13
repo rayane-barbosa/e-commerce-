@@ -36,7 +36,7 @@ export const Links = styled.nav`
   flex-direction: column;
   gap: 10px;
   margin: 10px 0;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #fff;
 
   &:hover {
@@ -45,5 +45,9 @@ export const Links = styled.nav`
 `;
 
 export const Contacts = styled.div`
+  font-size: 1.5rem;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;

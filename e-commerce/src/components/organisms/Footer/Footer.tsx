@@ -1,9 +1,8 @@
 import React from "react";
 import { FaTwitter } from "react-icons/fa";
 import { LuInstagram, LuFacebook } from "react-icons/lu";
-import * as Styled from "./footer-styles";
-import Image from "next/image";
-import logo from "../../../../public/logo.jpg";
+import * as Styled from "./Fotter.styles";
+import { ImageLogo } from "@/components/atoms/ImageLogo/ImageLogo";
 
 export const FooterPage = () => {
   return (
@@ -11,7 +10,7 @@ export const FooterPage = () => {
       <Styled.FooterContainer>
         <Styled.FooterAbout>
           <div>
-            <Image src={logo} alt="logo" width={100} height={100} />
+            <ImageLogo />
             <p>We love cats as much as you do.</p>
             <p>Address Lorem ipsum dolor sit</p>
             <p>Phone 123 456 789</p>

@@ -8,7 +8,16 @@ const Home: React.FC = () => {
     <div>
       <Header />
       <BannerHome />
-      <ProductList />
+      <ProductList
+        onProductClick={function (product: {
+          id: number;
+          name: string;
+          price: number;
+          image: string;
+        }): void {
+          throw new Error("Function not implemented.");
+        }}
+      />
       <Footer />
     </div>
   );

@@ -1,20 +1,74 @@
 import React from "react";
-import { ProductCard, ProductWrapper } from "./ProductList.styles";
+import { ProductCard, ProductWrapper, StyledLink } from "./ProductList.styles";
+import { UserContext } from "../../context/userContext/UserContext";
 
 const products = [
-  { id: 1, name: "Produto 1", price: 100 },
-  { id: 2, name: "Produto 2", price: 200 },
-  { id: 3, name: "Produto 3", price: 200 },
+  { id: 1, name: "Produto-1", price: 100, image: "https://picsum.photos/200" },
+  { id: 2, name: "Produto-2", price: 200, image: "https://picsum.photos/200" },
+  { id: 3, name: "Produto-3", price: 200, image: "https://picsum.photos/200" },
+  { id: 4, name: "Produto-4", price: 200, image: "https://picsum.photos/200" },
+  { id: 5, name: "Produto-1", price: 100, image: "https://picsum.photos/200" },
+  { id: 6, name: "Produto-2", price: 200, image: "https://picsum.photos/200" },
+  { id: 7, name: "Produto-3", price: 200, image: "https://picsum.photos/200" },
+  { id: 8, name: "Produto-4", price: 200, image: "https://picsum.photos/200" },
+  { id: 9, name: "Produto-1", price: 100, image: "https://picsum.photos/200" },
+  { id: 10, name: "Produto-2", price: 200, image: "https://picsum.photos/200" },
+  { id: 11, name: "Produto-3", price: 200, image: "https://picsum.photos/200" },
+  { id: 12, name: "Produto-4", price: 200, image: "https://picsum.photos/200" },
 ];
+interface ProductListProps {
+  onProductClick: (product: {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+  }) => void;
+}
 
-const ProductList: React.FC = () => {
+const ProductList: React.FC<ProductListProps> = ({ onProductClick }) => {
+  const { updateCart } = React.useContext(UserContext);
+
+  const addToCart = (product, quantity) => {
+    updateCart(product, quantity);
+    console.log(product, quantity);
+  };
+
   return (
     <ProductWrapper>
       {products.map((product) => (
-        <ProductCard key={product.id}>
-          <h2>{product.name}</h2>
-          <p>{product.price}</p>
-        </ProductCard>
+        <StyledLink
+          href={`/product/${product.name}_${product.id}`.toLowerCase()}
+          key={product.id}
+        >
+          {" "}
+          {/* Usando o StyledLink em vez do Link */}
+          <ProductCard onClick={() => onProductClick(product)}>
+            <img src={product.image} alt={product.name} />
+            <h2>{product.name}</h2>
+            <p>R$ {product.price}</p>
+            <input
+              type="number"
+              defaultValue="0"
+              min="0"
+              id={`quantity-${product.id}`}
+            />
+            <button
+              onClick={(e) => {
+                e.stopPropagation(); // Previne a navegação quando o botão é clicado
+                addToCart(
+                  product,
+                  (
+                    document.getElementById(
+                      `quantity-${product.id}`
+                    ) as HTMLInputElement
+                  ).value
+                );
+              }}
+            >
+              Adicionar ao carrinho
+            </button>
+          </ProductCard>
+        </StyledLink>
       ))}
     </ProductWrapper>
   );

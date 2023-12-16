@@ -20,34 +20,23 @@ interface User {
   };
 }
 
-interface Cart {
-  id: number;
-  userId: number;
-  products: {
-    id: number;
-    name: string;
-    price: number;
-    quantity: number;
-  }[];
-}
+// Utilizando uma abordagem mais genérica para remover campos sensíveis
+type Without<T, K extends keyof T> = Omit<T, K>;
 
-interface PurchaseHistory {}
+// Removendo a senha da interface User
+type UserWithoutPassword = Without<User, "password">;
 
 interface UserContextProps {
-  user: User | null;
-  cart: Cart | null;
-  loginUser: (user: User) => void;
+  user: UserWithoutPassword | null;
+  loginUser: (userData: Partial<User>) => void; // Agora aceita um objeto parcial de User
   logoutUser: () => void;
-  updateCart: (cart: Cart) => void;
 }
 
 // Create the context
 export const UserContext = createContext<UserContextProps>({
   user: null,
-  cart: null,
   loginUser: () => {},
   logoutUser: () => {},
-  updateCart: () => {},
 });
 
 interface UserProviderProps {
@@ -55,30 +44,19 @@ interface UserProviderProps {
 }
 
 export const UserProvider: FC<UserProviderProps> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null); // Keeps the state of the user
-  const [cart, setCart] = useState<Cart | null>(null); // Keeps the state of the cart
+  const [user, setUser] = useState<UserWithoutPassword | null>(null);
 
-  // Function to log in the user
-  const loginUser = (userData: User) => {
+  const loginUser = (userData: Without<User, "password">) => {
     setUser(userData);
-
-    console.log(userData);
   };
 
   // Function to log out the user
   const logoutUser = () => {
     setUser(null);
-    setCart(null);
-  };
-
-  const updateCart = (cartData: Cart) => {
-    setCart(cartData);
   };
 
   return (
-    <UserContext.Provider
-      value={{ user, cart, loginUser, logoutUser, updateCart }}
-    >
+    <UserContext.Provider value={{ user, loginUser, logoutUser }}>
       {children}
     </UserContext.Provider>
   );

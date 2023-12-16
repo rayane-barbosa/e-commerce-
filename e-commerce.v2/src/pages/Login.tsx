@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Container, Form, Input } from "../styles/forms.styles";
+import { UserContext } from "../context/userContext/UserContext";
 
 type FormValues = {
   email: string;
@@ -14,9 +15,14 @@ const Login: React.FC = () => {
     formState: { errors },
   } = useForm<FormValues>();
 
-  const onSubmit = (data: FormValues) => {
-    console.log(data);
-    // Aqui você pode chamar uma função para fazer o login do usuário
+  const { loginUser } = useContext(UserContext);
+
+  const onSubmit = ({ email }: FormValues) => {
+    loginUser({
+      email,
+    });
+
+    console.log(email);
   };
 
   return (

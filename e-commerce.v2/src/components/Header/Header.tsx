@@ -1,9 +1,13 @@
+"use client";
+
 import React, { useContext } from "react";
-import { Li, Nav, StyledHeader, StyledLink, Ul } from "./Header.styles";
+import { Nav, StyledHeader, StyledLink, Ul } from "./Header.styles";
 import Link from "next/link";
 import { UserContext } from "../../context/userContext/UserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { CartContext } from "../../context/cartContext/CartContext";
+import { useRouter } from "next/router";
 
 const navLinks = [
   { name: "Arteabox.com", path: "/" },
@@ -13,40 +17,44 @@ const navLinks = [
 ];
 
 function Header() {
-  const { user, cart, logoutUser } = useContext(UserContext); //
+  const { user, logoutUser } = useContext(UserContext);
+  const { cart } = useContext(CartContext);
+  const router = useRouter();
 
   return (
     <StyledHeader>
       <Nav>
         <Ul>
           {navLinks.map((link) => (
-            <Li key={link.name}>
+            <li
+              key={link.name}
+              className={router.pathname === link.path ? "active" : ""}
+            >
               <Link href={link.path} passHref>
                 <StyledLink>{link.name}</StyledLink>
               </Link>
-            </Li>
+            </li>
           ))}
+
           {user ? (
-            <Li>
+            <li>
               <FontAwesomeIcon icon={faUser} />
               <span>Bem-vindo, {user.name}!</span>
               <button onClick={logoutUser}>Logout</button>
-            </Li>
+            </li>
           ) : (
-            <Li>
+            <li>
               <FontAwesomeIcon icon={faUser} />
               <Link href="/login" passHref>
                 <StyledLink>Login</StyledLink>
               </Link>
-            </Li>
+            </li>
           )}
-          <Li>
+          <li>
             <Link href="/cart" passHref>
-              <StyledLink>
-                Carrinho ({cart ? cart.products.length : 0})
-              </StyledLink>
+              <StyledLink>Carrinho ({cart ? cart.items.length : 0})</StyledLink>
             </Link>
-          </Li>
+          </li>
         </Ul>
       </Nav>
     </StyledHeader>

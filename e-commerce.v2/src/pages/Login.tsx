@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Container, Form, Input } from "../styles/forms.styles";

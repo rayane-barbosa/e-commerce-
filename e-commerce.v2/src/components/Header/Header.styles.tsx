@@ -19,8 +19,6 @@ export const Ul = styled.ul`
   text-decoration: none;
 `;
 
-export const Li = styled.li``;
-
 export const StyledLink = styled.a`
   text-decoration: none;
   color: #333;

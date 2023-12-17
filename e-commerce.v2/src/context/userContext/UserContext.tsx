@@ -1,3 +1,5 @@
+"use client";
+
 import React, { createContext, useState, FC, ReactNode } from "react";
 
 interface User {
